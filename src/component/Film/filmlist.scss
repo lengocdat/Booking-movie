@@ -1,0 +1,307 @@
+.filmlist{
+  position: relative;
+  width: 100%;
+  transition:1 all;
+  .filmlist__previous {
+    position: absolute;
+    top: 62vh;
+    width: 80px;
+    left: 30px;
+    cursor: pointer;
+  }
+  .filmlist__next{
+    position: absolute;
+    top: 62vh;
+    width: 80px;
+    right: 30px;
+    cursor: pointer;
+  }
+  .filmlist__status{
+    text-align: center;
+    margin: 50px 0;
+    a{
+      font-size:20px;
+      margin-right: 20px;
+      text-decoration: none;
+      color: #000000;
+    }
+    .filmlist__status-active{
+      color: #fa5238;
+      font-size: 24px;
+      cursor: default;
+    }
+  }
+  .filmList__content{
+    .filmlist__content__play{
+      transition: 1s all;
+        opacity: 0;
+      img {
+        width:50px;
+        height: 50px;
+        position: absolute;
+        top:120px;
+        left: 125px;
+        cursor: pointer;
+      }
+    }
+    a{
+      text-decoration: none;
+      color: #000000;
+    }
+    .card__config {
+      border: unset;
+      position: relative;
+      width: 100%;
+      height: 380px;
+      .card__config__img{
+        img{
+          width: 100%;
+          height: 300px;
+          border-radius: 10px;
+        }
+      }
+      .card__body{
+        transition: 1s all;
+        h6 {
+          font-size: 16px;
+          line-height:40px;
+          margin:10px 0;
+        }
+        span {
+          color: #ffffff;
+          background-color: #fb4226;
+          border-radius:5px;
+          padding:0 5px;
+        }
+        .card__body__star{
+          background-color: rgba(12,27,54,.8);
+          color: #ffffff;
+          font-size:16px;
+          border-radius:5px;
+        }
+      }
+      .filmlist__hide{
+        transition: 1s all;
+        opacity: 0;
+        .filmlist__content__buy{
+          button {
+            width: 100%;
+            height: 40px;
+            background-image: linear-gradient(to bottom right, #FDD819, #E80505);
+            position: absolute;
+            bottom:30px;
+            color: #fff;
+            border: unset;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        }
+      }
+    }
+    
+  }
+  .filmList__content:hover .filmlist__hide{
+    opacity: 1;
+  }
+  .filmList__content:hover .filmlist__content__play{
+    opacity: 1;
+  }
+  .filmList__content:hover .card__body{
+    opacity: 0;
+  }
+}
+  //custom modal
+.custom-dialog {
+  .modal__body{
+    padding:0;
+    iframe{
+      width:100%;
+      display: block;
+      height: 90vh;
+    }
+    img{
+      position: absolute;
+      top:-20px;
+      right: -20px;
+      cursor: pointer;
+    }
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .filmlist{
+    .filmList__content{
+      .filmlist__content__play{
+        img {
+          top: 125px;
+          left: 100px
+        }
+      }
+      .card__config {
+        height: 360px;
+        .card__config__img{
+          img{
+            height: 300px;
+            border-radius: 10px;
+          }
+        }
+        .card__body{
+          h6 {
+            font-size: 16px;
+            line-height:40px;
+            margin:10px 0;
+          }
+          span {
+            border-radius:5px;
+            padding:0 5px;
+          }
+          .card__body__star{
+            font-size:16px;
+            border-radius:5px;
+          }
+        }
+        .filmlist__hide{
+          .filmlist__content__buy{
+            button {
+              width: 100%;
+              height: 40px;
+              bottom: 10px;
+              border-radius: 5px;
+          }
+          }
+        }
+      }
+      
+    }
+  }}
+
+  @media only screen and (max-width: 992px) {
+    .filmlist{
+      .filmlist__previous {
+        width: 50px;
+        top: 55vh;
+      }
+      .filmlist__next{
+        width: 50px;
+        top: 55vh;
+      }
+      .filmlist__status{
+        margin: 30px 0;
+      }
+      .filmList__content{
+        .filmlist__content__play{
+          img {
+            top:100px;
+            left: 70px;
+          }
+        }
+        .card__config {
+          height: 320px;
+          .card__config__img{
+            img{
+              height: 250px;
+            }
+          }
+          .card__body{
+            h6 {
+              line-height:20px;
+            }}
+          .filmlist__hide{
+            .filmlist__content__buy{
+              button {
+                height: 40px;
+                bottom:15px;
+            }
+            }
+          }
+        }
+        
+      }
+    }}
+
+    @media only screen and (max-width: 768px) {
+      .filmlist{
+        .filmlist__previous {
+          width: 50px;
+        }
+        .filmlist__next{
+          width: 50px;
+        }
+        .filmlist__status{
+          margin: 30px 0;
+          a{
+            font-size:18px;
+          }
+          .filmlist__status-active{
+            font-size: 22px;
+          }
+        }
+        .filmList__content{
+          .filmlist__content__play{
+            img {
+              width:60px;
+              height: 60px;
+              top:120px;
+              left: 110px;
+            }
+          }
+          .card__config {
+            height: 380px;
+            .card__config__img{
+              img{
+                height: 300px;
+                border-radius: 10px;
+              }
+            }
+            .card__body{
+              h6 {
+                line-height:20px;
+              }}
+            .filmlist__hide{
+              .filmlist__content__buy{
+                button {
+                  bottom:30px;
+              }
+              }
+            }
+          }
+          
+        }
+      }}
+
+      @media only screen and (max-width: 576px) {
+        .filmlist{
+          .filmlist__previous {
+            display: none;
+          }
+          .filmlist__next{
+            display:none; 
+          }
+          .filmlist__status{
+            margin: 20px 0;
+          }
+          .filmList__content{
+            .filmlist__content__play{
+              img {
+                top:120px;
+                left: 90px;
+              }
+            }
+            .card__config {
+              height: 380px;
+              .card__config__img{
+                img{
+                  height: 300px;
+                }
+              }
+              .card__body{
+                h6 {
+                  font-size: 16px;
+                  line-height:25px;
+                  margin:10px 0;
+                }
+              }
+            }
+            
+          }
+        }}
+

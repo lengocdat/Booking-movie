@@ -1,0 +1,102 @@
+.user{
+    width: 100%;
+    display: flex;
+    .user__navbar{
+        background-color: #000;
+        width: 15%;
+        .user__navbar-name{
+            
+                text-decoration: none;
+                color: #fff;
+                background-color: #9B59B6;
+                height: 40px;
+                line-height: 40px;
+                display: block;
+                text-align: center;
+                span{
+                    text-align: center; 
+                }
+            
+        }
+        .user__nav{
+            display: flex;
+            flex-direction: column;
+            ul{
+                list-style: none;
+                padding: 0;
+                width: 100%;
+                li {
+                    cursor: pointer;
+                    padding:20px 0;
+                    a{
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                    i {
+                        color: #fff;
+                        margin: 0 10px;
+                    }
+                }
+                li:hover {
+                    background-color: #000080;
+                }
+               
+            }
+        }
+    }
+    .user__data{
+        width: 85%;
+    }
+}
+@media screen and (max-width:1200px){
+    .user{
+        width: 100%;
+        display: flex;
+        .user__navbar{
+            background-color: #000;
+            width: 20%;
+        }
+        .user__data{
+            width: 80%;
+        }
+    }
+}
+@media screen and (max-width:992px){
+    .user{
+        width: 100%;
+        display: flex;
+        .user__navbar{
+            background-color: #000;
+            width: 30%;
+        }
+        .user__data{
+            width: 70%;
+        }
+    }
+}
+@media screen and (max-width:768px){
+    .user{
+        width: 100%;
+        display: flex;
+        .user__navbar{
+            background-color: #000;
+            width: 35%;
+        }
+        .user__data{
+            width: 65%;
+        }
+    }
+}
+@media screen and (max-width:576px){
+    .user{
+        width: 100%;
+        display: flex;
+        .user__navbar{
+            background-color: #000;
+            width: 40%;
+        }
+        .user__data{
+            width: 60%;
+        }
+    }
+}

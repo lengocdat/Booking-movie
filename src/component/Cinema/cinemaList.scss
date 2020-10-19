@@ -1,0 +1,278 @@
+*{
+    box-sizing: border-box;
+}
+.cinema{
+    .cinema__img-top{
+
+    }
+    .cinema__systems{
+        max-height: 650px;
+        border: 1px solid #ebebec;
+        padding: 0;
+        overflow: auto;
+        ul{
+            list-style: none;
+            padding: 0;
+            ;
+            li{
+                opacity: 0.5;
+                transition: 1s all;
+            }
+            .cinema__systems-logo{
+                cursor: pointer; 
+                height:100px;
+                padding:15px;
+                border-bottom: 1px solid #ebebec;
+                img{
+                    width: 100%;
+                    border-radius: 50%;
+                                     
+                }
+            }
+            li:hover{
+                opacity: 1;
+            }
+            li:focus-visible{
+                opacity: 1;
+            }
+            .active{
+                opacity: 1;
+            }
+            
+        }
+    }
+    .cinema__cinemalist{
+        max-height: 650px;
+        padding:0;
+        overflow: auto;
+        
+        border-bottom: 1px solid #ebebec;
+        .cinema__cinemalist-item{
+            padding:15px;
+            display: flex;
+            height:100px;
+            border-top: 1px solid #ebebec;
+            opacity: 0.5;
+            transition: 0.5s all;
+            cursor: pointer;
+            img{
+                width: 60px;
+                height: 60px;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+            h4{
+                font-size: 16px;
+                margin:0;
+            }
+            p {
+                font-size: 14px;
+                color: #949494;
+                margin:0;
+                height: 21px;
+                overflow: hidden;
+            }
+            span{
+                color: #fb4226;
+                font-size: 14px;
+            }
+        }
+        .cinema__cinemalist-item:hover{
+            opacity: 1;
+        }
+        .active{
+            opacity: 1;
+            .active-default{ display: none;}
+        }
+    }
+    .cinema__film{
+        max-height: 650px;
+        border: 1px solid #ebebec;
+        padding: 15px;
+        overflow: auto;
+        h3{
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        .cinema__film-film{
+            display: flex;
+            img{
+                width: 60px;
+                height: 60px;
+                margin-right: 15px;
+                border-radius: 5px;
+            }
+            span{
+                background-color: #fb4226;
+                color: #fff;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+            h4{
+                font-size: 18px;
+            }
+        }
+        .cinema__film-time{
+            a{
+                text-decoration: none;
+                color: #108f3e;
+                font-size: 20px;
+                border: 1px solid #e4e4e4;
+                border-radius: 5px;
+                padding:10px 15px;
+                font-weight: bold;
+                margin-right: 20px;
+                display: inline-block;
+                margin-top: 20px;
+                transition: 0.5s all;
+                font-style: italic;
+            }
+            a:hover{
+                color:#fb4226;
+            }
+        }
+    }
+}
+@media screen and (max-width:992px){
+    .cinema{
+        .cinema__systems{
+            max-height: 400px;
+
+            ul{
+                .cinema__systems-logo{
+                    cursor: pointer; 
+                    height:60px;
+                    padding:5px;
+                    border-bottom: 1px solid #ebebec;
+                    img{
+                        width: 100%;
+                        border-radius: 50%;
+                                         
+                    }
+                } 
+            }
+        }
+        .cinema__cinemalist{
+            max-height: 400px;
+            .cinema__cinemalist-item{
+                padding:5px;
+                height:60px;
+                img{
+                    width: 45px;
+                    height: 45px;
+                }
+                h4{
+                    font-size: 14px;
+                }
+                p {
+                    font-size: 12px;
+                    color: #949494;
+                    margin:0;
+                    height: 15px;
+                    overflow: hidden;
+                }
+                span{
+                    display:none;
+                }
+            }
+        }
+        .cinema__film{
+            max-height: 400px;
+            h3{
+                font-size: 16px;
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
+            .cinema__film-film{
+                img{
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 15px; 
+                }
+                h4{
+                    font-size: 16px;
+                }
+            }
+            .cinema__film-time{
+                a{   
+                    font-size: 16px;
+                    padding:5px 10px;
+                    margin-right: 10px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px){
+    .cinema{
+        .cinema__systems{
+            max-height: 400px;
+            ul{
+                .cinema__systems-logo{
+                    cursor: pointer; 
+                    height:60px;
+                    padding:5px;
+                    border-bottom: 1px solid #ebebec;
+                    img{
+                        width: 100%;
+                        border-radius: 50%;
+                                         
+                    }
+                } 
+            }
+        }
+        .cinema__cinemalist{
+            max-height: 400px;
+            .cinema__cinemalist-item{
+                padding:5px;
+                height:60px;
+                img{
+                    width: 45px;
+                    height: 45px;
+                }
+                h4{
+                    font-size: 14px;
+                }
+                p {
+                    font-size: 12px;
+                    color: #949494;
+                    margin:0;
+                    height: 15px;
+                    overflow: hidden;
+                }
+                span{
+                    display:none;
+                }
+            }
+        }
+        .cinema__film{
+            max-height: 400px;
+            h3{
+                font-size: 16px;
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
+            .cinema__film-film{
+                img{
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 15px; 
+                }
+                h4{
+                    font-size: 16px;
+                }
+            }
+            .cinema__film-time{
+                a{   
+                    font-size: 16px;
+                    padding:5px 10px;
+                    margin-right: 10px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

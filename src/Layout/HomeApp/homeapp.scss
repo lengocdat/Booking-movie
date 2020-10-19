@@ -1,0 +1,181 @@
+.homeapp{
+    background-image: url('/img/backapp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 630px;
+    width: 100%;
+    padding-bottom: 60px;
+    .homeapp__left{
+        padding: 60px 50px 0px 50px;
+        height: 450px;
+        h3{
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-top: 30px;
+            color: #fff;
+            font-style: 20px;
+            margin-bottom: 30px;
+        }
+        button {
+            border-radius: 5px;
+            padding: 5px;
+            color: #fff;
+            background-color: #fb4226;
+            border:unset;
+            box-shadow: 2px 3px 2px #00c4eb;
+        }
+        a {
+            color: #fb4226;
+            text-decoration: underline;
+            transition: 0.5s all;
+        }
+        a:hover {
+            color: #00c4eb;
+        }
+    }
+    .homeapp__right{
+        background-image: url("/img/mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        width:60%;
+        text-align: center;
+        margin:0 auto;
+        .homeapp__right__carousel{
+            width: 100%;
+            li{
+                display:none;
+            }
+            .homeapp__right__carousel-item{
+                img{
+                    height: 500px;
+                    width: 94%;
+                    margin:0 auto;
+                }
+            }
+        }
+        .carousel .active {
+            background-color: unset;
+        }
+    }
+}
+
+@media screen and (max-width:992px){
+    .homeapp{
+        .homeapp__left{
+            padding: 60px 50px 0px 50px;
+            height: 450px;
+            h3{
+                color: #fff;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            p {
+                margin-top: 30px;
+                color: #fff;
+                font-style: 20px;
+                margin-bottom: 30px;
+            }
+            button {
+                border-radius: 5px;
+                padding: 5px;
+                color: #fff;
+                background-color: #fb4226;
+                border:unset;
+                box-shadow: 2px 3px 2px #00c4eb;
+            }
+            a {
+                color: #fb4226;
+                text-decoration: underline;
+                transition: 0.5s all;
+            }
+            a:hover {
+                color: #00c4eb;
+            }
+        }
+        .homeapp__right{
+            height: 400px;
+            width:60%;
+            .homeapp__right__carousel{
+                .homeapp__right__carousel-item{
+                    img{
+                        height: 400px;
+                        width: 100%;
+                    }
+                }
+            }
+            .carousel .active {
+                background-color: unset;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px){
+    .homeapp{
+        .homeapp__left{
+            padding: 60px 0px 0px 0px;
+            margin:0 auto;
+            h3{
+                color: #fff;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            p {
+                margin-top: 30px;
+                color: #fff;
+                font-style: 20px;
+                margin-bottom: 30px;
+            }
+            button {
+                border-radius: 5px;
+                padding: 5px;
+                color: #fff;
+                background-color: #fb4226;
+                border:unset;
+                box-shadow: 2px 3px 2px #00c4eb;
+            }
+
+        }
+        .homeapp__right{
+            height: 400px;
+            width:80%;
+        }
+    }
+}
+@media only screen and (max-width: 576px) {
+    .homeapp{
+        .homeapp__left{
+            padding: 150px 50px 0px 50px;
+            margin:0 auto;
+            h3{
+                color: #fff;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            p {
+                margin-top: 30px;
+                color: #fff;
+                font-style: 20px;
+                margin-bottom: 30px;
+            }
+            button {
+                border-radius: 5px;
+                padding: 5px;
+                color: #fff;
+                background-color: #fb4226;
+                border:unset;
+                box-shadow: 2px 3px 2px #00c4eb;
+            }
+
+        }
+        .homeapp__right{
+            display:none;
+        }
+    }
+}

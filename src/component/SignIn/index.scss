@@ -1,0 +1,85 @@
+.signin{
+    background-image: url('/img/tong-hop-hinh-nen-background-vector-designer-dep-do-phan-giai-fhd-2k-4k-moi-nhat-2-1024x683.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+    .signin__content {
+        max-width: 500px;
+        margin:0 auto;
+        padding-top: 80px;
+        .signin__content__top {
+            text-align: center;
+            
+            img {
+                width: 200px;
+                cursor: pointer;
+            }
+        }
+        .signin__content__bottom{
+            padding:0 80px;
+            .field__group{
+                background-color: rgba(255, 255, 255, 0.15);
+                margin-bottom: 20px;  
+                border-radius: 35px;
+                display: flex;
+                i {
+                    width: 10%;
+                    color: #fff;
+                    text-align: right;
+                    line-height:38px;
+                }
+                input:-webkit-autofill{
+                    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+                    -webkit-text-fill-color: #ddd;
+                    transition: background-color 5000s ease-in-out 0s;
+                }
+                input {
+                    color: #ddd;
+                    background-color: transparent;
+                    border: none;
+                    width: 100%;
+                    outline: none;
+                    padding: 9px 0 9px 15px;
+                }
+            }
+            .signin__content__bottom__button{
+                button{
+                    background: #fc636b;
+                    border: none;
+                    color: #fff;
+                    width: 100%;
+                    margin-top: 10px;
+                    border-radius: 35px;
+                    padding:9px 0;
+                }
+            }
+            .signin__content__bottom__signup{
+                margin-top: 20px;
+                padding: 0px;
+                
+                li {
+                    display: inline-block;
+                    a{
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                }
+                .signin__content__bottom__signup-right{
+                    margin-left: 213px;
+                }
+            }
+        }    
+    }
+}
+@media screen and (max-width:576px){
+    .signin{
+        .signin__content {
+            .signin__content__bottom{
+                    .signin__content__bottom__signup-right{
+                        margin-left: 183px!important;
+                }
+            }
+        }    
+    }
+}

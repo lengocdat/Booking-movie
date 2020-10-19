@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+}
+.news{
+    .news__nav {
+        text-align: center;
+        margin: 50px 0;
+        span{
+          font-size:20px;
+          margin-right: 20px;
+          color: #000000;
+          cursor: pointer;
+        }
+        .news__nav__active{
+            color: #fa5238;
+          font-size: 24px;
+          cursor: default;
+        }
+    }
+    .news__content{
+        .news__img-top{
+            img{
+                width: 100%;
+                border-radius:10px;
+            }
+        }
+        h3 {
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+            height: 42px;
+            overflow: hidden;
+            transition: 0.5s all;
+        }
+        h3:hover {
+            color: #fa5238;
+        }
+        p{
+            color: #4a4a4a;
+            font-size:14px;
+            margin-bottom: 20px;
+            height: 63px;
+            overflow: hidden;
+        }
+        .news__img-bottom{
+            img {
+                width: 100%;
+                border-radius:10px;
+            }
+        }
+        .news__config{
+            display:flex;
+            width: 100%;
+            margin-bottom: 10px;
+            .news__img-left{
+                width: 20%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius:5px;  
+                }
+            }
+            h4{
+                cursor: pointer;
+                margin-left: 15px;
+                margin-bottom: 0px;
+                width: 80%;
+                opacity: 0.7;
+                height: 69px;
+                font-size:18px;
+                overflow: hidden;
+                line-height:22px;
+                transition: 0.5s all;
+            }
+        }
+        h4:hover {
+            color: #fa5238;
+        }
+        .news__btn{
+            margin:30px auto;
+            button{
+                border-radius: 5px;
+                border: unset;
+                color: #ffffff;
+                padding:7px 10px;
+                background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);
+                font-weight: bold;
+                box-shadow: 5px 8px 8px #888888;
+                transition: 1s all;
+                -webkit-transition: 1s all;
+                -moz-transition: 1s all;
+                -o-transition: 1s all;
+            }
+            
+        }
+        .news__btn button:hover {
+            background-image: linear-gradient(to bottom right, #FDD819, #E80505);
+        }
+    }
+    
+}
