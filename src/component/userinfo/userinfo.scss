@@ -1,0 +1,113 @@
+.userinfo{
+    background-image: url('/img/tong-hop-hinh-nen-background-vector-designer-dep-do-phan-giai-fhd-2k-4k-moi-nhat-2-1024x683.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin-top: 60px;
+    padding: 100px 0;
+    .container{
+        border: 1px solid #fff;
+        padding:60px 40px;
+        .userinfo__left{
+            text-align: center;
+            h4{
+                font-size: 24px;
+                margin-bottom: 40px;
+                color: #fff;
+            }
+            p{
+                color: #fff;
+                font-size: 16px;
+                padding:10px 0;
+                margin-bottom: 0;
+                transition: 0.5s all;
+                cursor: pointer;
+            }
+            p:hover{
+                color: #fb4226;
+                font-size: 18px;
+                background-color: #191970;
+            }
+            .active{
+                color: #fb4226;
+                font-size: 18px;
+                background-color: #191970;
+            }
+        }
+        .userinfo__right{
+            h3{
+                text-align: center;
+                color: #fff;
+            }
+            label{
+                color: #fff;
+            }
+            .userinfo__right__form{
+                input{
+                    background-color: rgba(255, 255, 255, 0.15);
+                    margin-bottom: 10px;  
+                    border-radius: 35px;
+                    width: 100%;
+                    color: #ddd;
+                    border: none;
+                    outline: none;
+                    padding: 13px 0 13px 15px;
+                }
+                input:disabled {
+                    background-color: #ddd;
+                    color: #999;
+                }
+                input:-webkit-autofill{
+                    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+                    -webkit-text-fill-color: #ddd;
+                    transition: background-color 5000s ease-in-out 0s;
+                }
+                .userinfo__right__alert{
+                    border-radius: 35px;
+                }
+                button{
+                    background-image: linear-gradient(to bottom right, #43cbff, #9708cc);
+                    width: 100%;
+                    height: 80px;
+                    border-radius: 10px;
+                    box-shadow: 5px 10px 15px #000;
+                    font-size: 35px;
+                    color: #fff;
+                    transition: 1s all;
+                    margin-top: 30px;
+                    transition: 0.5s all;
+                }
+                button:focus {
+                    outline: none;
+                }
+                button:hover {
+                    background-image: linear-gradient(to top left, #81fbbb, #28c76f);
+                }
+            }
+            .userinfo__right__table{
+                tr,th{
+                    color: #fff;
+                    padding:10px 0;
+                }
+                border: 1px solid #fff;
+                tr th{
+                    text-align: center;
+                }
+                thead tr th:nth-child(2) {
+                    width: 120px;
+                }
+                thead tr th:nth-child(5) {
+                    width: 90px;
+                }
+                th{
+                    max-width: 250px;
+                }
+                .userinfo__right__table-massage {
+                    border-bottom: 1px solid #fff;
+                    padding:20px 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
