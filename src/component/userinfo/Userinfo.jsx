@@ -16,15 +16,22 @@ class Userinfo extends Component {
       userInfo: [],
     };
   }
-
+  
+  componentDidUpdate(prevProps) {
+    if (this.props.user.taiKhoan !== prevProps.user.taiKhoan) {
+      this.getUserInfo({ taiKhoan: this.props.user.taiKhoan });
+    }
+  }
+  componentDidMount() {
+    this.getUserInfo({ taiKhoan: this.props.user.taiKhoan });
+  }
   updateUser = (values) => {
-    console.log(values);
     UserService.updateUser(values)
       .then(() => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Update Thành Công",
+          title: "Cập Nhật Thành Công",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -56,7 +63,7 @@ class Userinfo extends Component {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Update Thành Công",
+            title: "Đổi Mật Khẩu Thành Công",
             showConfirmButton: false,
             timer: 1500,
           }).then(() => window.location.reload());
@@ -65,7 +72,7 @@ class Userinfo extends Component {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Cập Nhật thất bại",
+            text: "Đổi Mật Khẩu thất bại",
           });
         });
     } else {
@@ -84,14 +91,6 @@ class Userinfo extends Component {
         console.log(err);
       });
   };
-  componentDidUpdate(prevProps) {
-    if (this.props.user.taiKhoan !== prevProps.user.taiKhoan) {
-      this.getUserInfo({ taiKhoan: this.props.user.taiKhoan });
-    }
-  }
-  componentDidMount() {
-    this.getUserInfo({ taiKhoan: this.props.user.taiKhoan });
-  }
 
   renderUserinfo = () => {
     return (
@@ -288,7 +287,7 @@ class Userinfo extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.userInfo.thongTinDatVe === [] ? (
+            {this.state.userInfo.thongTinDatVe.length ? (
               this.state.userInfo.thongTinDatVe?.map((item, index) => (
                 <tr key={index}>
                   <th>{item.tenPhim}</th>
@@ -309,7 +308,7 @@ class Userinfo extends Component {
               ))
             ) : (
               <tr>
-                <th className="userinfo__right__table_massage">
+                <th colSpan="5" className="userinfo__right__table_massage">
                   Không có lịch sử đặt vé
                 </th>
               </tr>
@@ -330,11 +329,9 @@ class Userinfo extends Component {
       return this.renderHistorybooking();
     }
   };
-  isAtive = (index) => (this.state.changeRender === index ? "active" : "");
+  isAtive = (name) => (this.state.changeRender === name ? "active" : "");
   render() {
     const { user } = this.props;
-    console.log(this.props.user);
-    console.log(this.state.userInfo);
     return (
       <>
         <Header />

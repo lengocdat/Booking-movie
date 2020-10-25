@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserManager from './UserManager';
 import './adminmanager.scss';
-import { Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../action/credentialActions';
 import FilmManager from './FilmManager/Filmmanager';
@@ -18,8 +18,8 @@ class AdminManager extends Component {
             return <UserManager/>
         }
     }
+    isAtive = (name) => (this.state.changeComponent === name ? "active" : "");
     render() {
-        console.log(this.state.changeComponent);
         return (
             <div className="user">
                 <nav className="user__navbar">
@@ -29,13 +29,17 @@ class AdminManager extends Component {
                     </button>
                     <div className="collapse navbar-collapse user__nav" id="collapsibleNavId">
                         <ul>
-                            <li onClick={() => this.setState({ changeComponent: "film" })}>
+                            <li className={this.isAtive("film")} onClick={() => this.setState({ changeComponent: "film" })}>
                                 <i className="fa fa-film"></i>
                                 <a>Quản lí Phim</a>
                             </li>
-                            <li onClick={() => this.setState({ changeComponent: "user" })}>
+                            <li className={this.isAtive("user")} onClick={() => this.setState({ changeComponent: "user" })}>
                                 <i className="fa fa-users"></i>
                                 <a>Quản lí người dùng</a>
+                            </li>
+                            <li onClick={() => this.props.history.push('/')}>
+                                <i class="fa fa-home"></i>
+                                <a>Go Home</a>
                             </li>
                             <li onClick={() => { this.props.dispatch(logout()) }}>
                                 <i className="fa fa-power-off"></i>

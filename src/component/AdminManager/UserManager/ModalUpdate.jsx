@@ -166,7 +166,7 @@ export class ModalUpdate extends Component {
   updateUser = (values) => {
     console.log(values);
     UserService.updateUser(values)
-      .then((res) => {
+      .then(() => {
         Swal.fire({
           position: 'top-end',
           icon: 'success',

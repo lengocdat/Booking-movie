@@ -158,6 +158,10 @@
                         font-size:18px;
                         line-height: 42px;
                     }
+                    transition:all .5s;
+                }
+                li:hover{
+                    opacity: 1;
                 }
                 .active{
                     opacity: 1;
@@ -174,12 +178,18 @@
                     box-shadow: 0 0 15px #888888;
                     display: flex;
                     overflow-x: auto;
+                    cursor: pointer;
                     .filmdetail__lichchieu__day-item{
                         padding: 20px;
                         p{
                             margin:0px;
                             text-align: center;
+                            font-weight: 500;
                         }
+                        transition:all 0.5s;
+                    }
+                    .active{
+                        color: #fb4226;
                     }
                 }
                 .filmdetail__lichchieu__detail-items{

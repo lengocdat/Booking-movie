@@ -26,6 +26,7 @@
                 padding: 0;
                 width: 100%;
                 li {
+                    transition:all 1s;
                     cursor: pointer;
                     padding:20px 0;
                     a{
@@ -40,7 +41,9 @@
                 li:hover {
                     background-color: #000080;
                 }
-               
+            }
+            .active{
+                background-color: #000080;
             }
         }
     }

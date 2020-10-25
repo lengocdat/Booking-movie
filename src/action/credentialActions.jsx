@@ -20,7 +20,7 @@ export const fetchCredentials = (user) => {
         });
   };
 };
-export const logout = () => {
+export const logout = (history) => {
   return (dispatch) => {
   localStorage.removeItem('credentials');
   dispatch(createAction(LOGOUT.SUCCESS));

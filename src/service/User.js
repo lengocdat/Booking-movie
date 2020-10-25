@@ -84,5 +84,5 @@ export const userInfoSchema = yup.object().shape({
   xacNhanMatKhau: yup
     .string()
     .required("Không được để trống")
-    .oneOf([yup.ref("matKhau"), null], "Mật khẩu không trùng khớp"),
+    .oneOf([yup.ref("matKhau")], "Mật khẩu không trùng khớp"),
 });

@@ -49,13 +49,12 @@ class Header extends Component {
               </ul>
               <div className="header__login">
                 <div className="header__login__user">
-                   
                     {this.props.User ? 
                     <div className="header__login__true">
                       <p>{this.props.User.hoTen.substring(0,1)}</p>
                       <span>Hi, {this.props.User.hoTen?.substring(0,8)}</span>
                       <div className="header__login__logout">
-                      <Link to="/userinfo" >Thông Tin Người Dùng</Link>
+                        <Link to="/userinfo" >Thông Tin Người Dùng</Link>
                         <Link to="/" onClick={()=>{this.props.dispatch(logout())}}>Đăng Xuất</Link>
                       </div>
                     </div> :

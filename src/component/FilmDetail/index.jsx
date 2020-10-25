@@ -13,6 +13,8 @@ class FilmDetail extends Component {
             currentMaRap:"",
             isAtive: false,
             currentNgay:"01-01",
+            selected: 0,
+            ngaySelected:0,
         }
     }
 
@@ -89,9 +91,10 @@ class FilmDetail extends Component {
                                             key={index}
                                             onClick={() => {
                                             this.setState({ currentMaRap: hethongrap.maHeThongRap,
+                                                selected:index
                                              });
                                             }}
-                                            className={`${index === 0 ?'active' :''}`}
+                                            className={index===this.state.selected ? "active" : ""}
                                         >    
                                             <img src={hethongrap.logo} alt="img"/>
                                             <h3>{hethongrap.tenHeThongRap}</h3>
@@ -103,7 +106,7 @@ class FilmDetail extends Component {
                                     <div className="filmdetail__lichchieu__detail">
                                         <div className="filmdetail__lichchieu__day">
                                             {ngayChieu.map((ngay,index)=>(
-                                                <div key={index} className="filmdetail__lichchieu__day-item"onClick={() =>{this.setState({currentNgay:ngay})}}>
+                                                <div key={index} className={index===this.state.ngaySelected ? "filmdetail__lichchieu__day-item active" : "filmdetail__lichchieu__day-item"}onClick={() =>{this.setState({currentNgay:ngay,ngaySelected:index})}}>
                                                     <p>{ngay}</p>
                                                 </div>
                                             ))}

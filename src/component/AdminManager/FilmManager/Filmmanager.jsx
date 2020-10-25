@@ -12,18 +12,17 @@ export default class Filmmanager extends Component {
   _handleChange = (e) => {
     let target = e.target
     if (target.name === 'hinhAnh') {
-      this.setState({ hinhAnh: e.target.files[0] }, () => console.log(this.state))
+      this.setState({ hinhAnh: e.target.files[0] })
     }
   }
-  _handleSubmit = (values, e,) => {
-    console.log(values);
+  _handleSubmit = (values) => {
     var form_data = new FormData();
     for (var key in values) {
       form_data.append(key, values[key])
     }
     FilmService
       .addFilm(form_data)
-      .then(res => {
+      .then(() => {
         Swal.fire({
           position: 'top-end',
           icon: 'success',

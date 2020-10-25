@@ -71,6 +71,7 @@ export default class UserManager extends Component {
   }
 
   searchUser = (values) => {
+    if(values.name.length)
     UserService.searchUser(values.name)
       .then((res) => (
         this.setState({ userArray: res.data.items })
@@ -78,6 +79,9 @@ export default class UserManager extends Component {
       .catch(err => {
         console.log(err);
       })
+    else{
+      this.getUserOfPage()
+    }
   }
   render() {
 
@@ -102,6 +106,7 @@ export default class UserManager extends Component {
                     name="name"
                     onChange={formikProps.handleChange}
                     className="field__group"
+                    placeholder="Nhập Họ Tên"
                   />
                   <button type="submit">Tim</button>
                 </Form>
