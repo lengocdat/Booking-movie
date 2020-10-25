@@ -76,7 +76,7 @@
                         margin-right: 60px;
                         width: 23px;
                     }
-                    .seat-nomal,.seat,.seat-chose{
+                    .seat-nomal,.seat,.seat-chose,.seat-reserved{
                         margin-right: 15px;
                         width: 23px;
                         height: 23px;
@@ -114,6 +114,15 @@
                             display: inline;
                             margin:0;
                             padding: 0;  
+                        }
+                    }
+                    .seat-reserved{
+                        border: none;
+                        background-color: #191970;
+                        box-shadow:0 0 0 4px #fff,0 5px 0px 5px#191970;
+                        cursor: default;
+                        span{
+                            display: none;
                         }
                     }
                 }

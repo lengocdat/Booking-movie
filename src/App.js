@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
-import './App.css';
-import DuAnWebPhim from './component/DuAnWebPhim';
-import SignIn from './component/SignIn';
-import FilmDetail from './component/FilmDetail'
-import {BrowserRouter,Route, Switch} from 'react-router-dom'
-import SignUp from './component/SignUp';
-import {connect} from 'react-redux'
-import { createAction } from './action';
-import { FETCH_CREDENTIALS } from './action/type';
-import Adminmanager from './component/AdminManager/Adminmanager';
-import BuyTicket from './component/BuyTicket/BuyTicket';
-import AdminRoute from './component/Route/AdminRoute';
-import UserRoute from './component/Route/UserRoute';
-import Filmmanager from './component/AdminManager/FilmManager/Filmmanager';
-import UserManager from './component/AdminManager/UserManager';
+import React, { Component } from "react";
+import "./App.css";
+import DuAnWebPhim from "./component/DuAnWebPhim";
+import SignIn from "./component/SignIn";
+import FilmDetail from "./component/FilmDetail";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import SignUp from "./component/SignUp";
+import Userinfo from "./component/userinfo/Userinfo";
+import { connect } from "react-redux";
+import { createAction } from "./action";
+import { FETCH_CREDENTIALS } from "./action/type";
+import Adminmanager from "./component/AdminManager/Adminmanager";
+import BuyTicket from "./component/BuyTicket/BuyTicket";
+import AdminRoute from "./component/Route/AdminRoute";
+import UserRoute from "./component/Route/UserRoute";
+import Filmmanager from "./component/AdminManager/FilmManager/Filmmanager";
+import UserManager from "./component/AdminManager/UserManager";
 class App extends Component {
   render() {
     return (
@@ -22,27 +23,30 @@ class App extends Component {
           <Route path="/" exact component={DuAnWebPhim} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/userinfo" component={Userinfo} />
           <Route path="/detail/:filmid" component={FilmDetail} />
           <AdminRoute path="/admin" component={Adminmanager} />
           <UserRoute path="/buyticket/:showtimeid" component={BuyTicket} />
           <AdminRoute path="/admin/usermanager" component={Filmmanager} />
           <AdminRoute path="/admin/filmmanager" component={UserManager} />
-        </Switch> 
+        </Switch>
       </BrowserRouter>
     );
   }
   getCredentialsFromLocal = () => {
     const credentialsString = localStorage.getItem("credentials");
-    if(credentialsString){
-      this.props.dispatch(createAction(FETCH_CREDENTIALS.SUCCESS, JSON.parse(credentialsString)))
+    if (credentialsString) {
+      this.props.dispatch(
+        createAction(FETCH_CREDENTIALS.SUCCESS, JSON.parse(credentialsString))
+      );
     }
+  };
+  componentDidMount() {
+    this.getCredentialsFromLocal();
   }
-  componentDidMount(){
-    this.getCredentialsFromLocal()
-  }
-  componentDidUpdate(){
-    this.getCredentialsFromLocal()
+  componentDidUpdate() {
+    this.getCredentialsFromLocal();
   }
 }
 
-export default connect() (App);
+export default connect()(App);

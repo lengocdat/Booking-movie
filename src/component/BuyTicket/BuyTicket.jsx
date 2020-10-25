@@ -9,66 +9,68 @@ class BuyTicket extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          seatArray: [],
-          filmInfo: {},
-          currentChair:[],
+            seatArray: [],
+            filmInfo: {},
+            currentChair: [],
+            tenGhe: [],
         };
-      }
+    }
     componentDidMount() {
-        // this.props.dispatch(fetchRoomTicket(this.props.match.params.showtimeid))
         Schedule.getRomTicket(this.props.match.params.showtimeid)
-        .then((res) => {
-          this.setState({
-              seatArray: res.data.danhSachGhe,
-              filmInfo: res.data.thongTinPhim,
-          })
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+            .then((res) => {
+                this.setState({
+                    seatArray: res.data.danhSachGhe,
+                    filmInfo: res.data.thongTinPhim,
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
-    datve = (values) =>{
-        console.log(values);
+    datve = (values) => {
         Schedule.datVe(values)
-        .then(()=>{
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Đặt Vé Thành Công',
-                showConfirmButton: false,
-                timer: 1500
-              })
-        })
-        .catch((err)=>{
-            console.log(err);
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Đặt Vé Thất Bại',
-              })
-        })
+            .then(() => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Đặt Vé Thành Công',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => window.location.reload())
+            })
+            .catch(() => {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Đặt Vé Thất Bại',
+                })
+            })
     }
 
-    addSeat =(seat) => {
-        console.log(typeof(+seat.tenGhe),typeof(+seat.giaVe),typeof(+this.props.match.params.showtimeid),typeof(this.props.user.taiKhoan));
-        this.setState({currentChair: [...this.state.currentChair,{maGhe:+seat.tenGhe,giaVe:+seat.giaVe}]})
+    addSeat = (seat) => {
+        this.setState({ currentChair: [...this.state.currentChair, { maGhe: +seat.maGhe, giaVe: +seat.giaVe }], tenGhe: [...this.state.tenGhe, seat.tenGhe] })
     }
-    removeSeat = (seat) =>{
-        console.log(seat);
+    removeSeat = (seat) => {
         let seatArray = [...this.state.currentChair];
-        console.log(seatArray);
-        let index = seatArray.findIndex(danhSachVe => danhSachVe.maGhe === +seat.tenGhe);
+        let nameArray = [...this.state.tenGhe]
+        let index = seatArray.findIndex(danhSachVe => danhSachVe.maGhe === +seat.maGhe);
+        let indexName = nameArray.findIndex(tenghe => tenghe === seat.tenGhe);
         if (index !== -1) {
             seatArray.splice(index, 1);
-            this.setState({currentChair: seatArray});
-         };
+            this.setState({ currentChair: seatArray });
+        };
+        if (indexName !== -1) {
+            nameArray.splice(index, 1);
+            this.setState({ tenGhe: nameArray });
+        };
     }
     render() {
-        const datVe={
-            maLichChieu:+this.props.match.params.showtimeid,
-            danhSachVe:this.state.currentChair,
-            taiKhoanNguoiDung:this.props.user.taiKhoan
+        const datVe = {
+            maLichChieu: +this.props.match.params.showtimeid,
+            danhSachVe: this.state.currentChair,
+            taiKhoanNguoiDung: this.props.user.taiKhoan
         }
         console.log(datVe);
         return (
@@ -83,7 +85,7 @@ class BuyTicket extends Component {
                                 2 KẾT QUẢ ĐẶT VÉ
                             </li>
                             <li>
-                                <span>{this.props.user.hoTen?.substring(0,1)}</span>{this.props.user.hoTen}
+                                <span>{this.props.user.hoTen?.substring(0, 1)}</span>{this.props.user.hoTen}
                             </li>
                         </ul>
                     </div>
@@ -105,10 +107,10 @@ class BuyTicket extends Component {
                             <div className="container">
                                 <div className="buyticket__left__content-seat">
                                     <div className="row rowseat">
-                                    {this.state.seatArray.map((seat,index)=> (
-                                        <Seat key={index} seat={seat} addSeat={this.addSeat} removeSeat={this.removeSeat}/>
-                                    ))
-                                    }
+                                        {this.state.seatArray.map((seat, index) => (
+                                            <Seat key={index} seat={seat} addSeat={this.addSeat} removeSeat={this.removeSeat} />
+                                        ))
+                                        }
                                     </div>
                                 </div>
                                 <div className="row seatinfo">
@@ -135,7 +137,7 @@ class BuyTicket extends Component {
                 </div>
                 <div className="buyticket__right">
                     <div className="container">
-                        <p className="buyticket__right__total">{this.state.currentChair?.reduce((tonggia, item)=>tonggia + item.giaVe,0)}đ</p>
+                        <p className="buyticket__right__total">{this.state.currentChair?.reduce((tonggia, item) => tonggia + item.giaVe, 0)}đ</p>
                         <div className="buyticket__right__info">
                             <p><span>C16</span>{this.state.filmInfo.tenPhim}</p>
                             <p>{this.state.filmInfo.tenCumRap}</p>
@@ -144,8 +146,8 @@ class BuyTicket extends Component {
                             <p></p>
                         </div>
                         <div className="buyticket__right_price">
-                                <p>Ghế: {this.state.currentChair?.reduce((tongghe, ghe)=>tongghe + ghe.maGhe +" ","")}</p>
-                                <p>{this.state.currentChair?.reduce((tonggia, item)=>tonggia + item.giaVe,0)}đ</p>
+                            <p>Ghế: {this.state.tenGhe?.reduce((tongghe, tenghe) => tongghe + tenghe + " ", "")}</p>
+                            <p>{this.state.currentChair?.reduce((tonggia, item) => tonggia + item.giaVe, 0)}đ</p>
                         </div>
                         <div>
                             <p>email</p>
@@ -160,7 +162,7 @@ class BuyTicket extends Component {
                             <p>fadsdàdfa</p>
                         </div>
                         <div>
-                            <button className="buyticket__right__book" onClick={() =>{this.datve(datVe)}}>Đặt Vé</button>
+                            <button className="buyticket__right__book" onClick={() => { this.datve(datVe) }}>Đặt Vé</button>
                         </div>
                     </div>
                 </div>
@@ -168,7 +170,7 @@ class BuyTicket extends Component {
         )
     }
 }
-const mapstateToProps = (state) =>({
+const mapstateToProps = (state) => ({
     user: state.UserReducer.credentials
-  })
-  export default connect(mapstateToProps,null)(BuyTicket)
+})
+export default connect(mapstateToProps, null)(BuyTicket)

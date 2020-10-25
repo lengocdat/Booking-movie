@@ -17,8 +17,10 @@ export default class Seat extends Component {
         const {seat} = this.props
         return (
             <>
-                <button  className={`${seat.loaiGhe === "Thuong"?"seat-nomal ": "seat "} + ${this.state.status?"seat-chose":""}`} onClick={()=>
-                    {this.handleClick()}}><span>{seat.tenGhe}</span></button>
+                {this.props.seat.daDat?
+                <button  className="seat-reserved" disabled><span>{seat.tenGhe}</span></button>
+                :<button  className={`${seat.loaiGhe === "Thuong"?"seat-nomal ": "seat "} + ${this.state.status?"seat-chose":""}`} onClick={()=>
+                    {this.handleClick()}}><span>{seat.tenGhe}</span></button>}
             </>
         )
     }

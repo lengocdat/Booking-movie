@@ -65,7 +65,9 @@ header {
           }
         }
         .header__login__logout {
+          height: 80px;
           display: none;
+          background-color: #949494;
           a{
             color: #fff;
             background-color: #949494;

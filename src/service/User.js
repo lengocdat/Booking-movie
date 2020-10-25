@@ -5,15 +5,15 @@ export class UserServices {
     return Axios({
       url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
       method: "POST",
-      data
+      data,
     });
-  };
+  }
 
   signIn(user) {
     return Axios({
       url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
       method: "POST",
-      data:user
+      data: user,
     });
   }
 
@@ -23,47 +23,66 @@ export class UserServices {
       method: "GET",
     });
   }
-  addUser(user){
+  addUser(user) {
     return Axios({
-      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
       method: "POST",
-      data:user
+      data: user,
     });
   }
-  updateUser(user){
+  updateUser(user) {
     return Axios({
-      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
       method: "PUT",
-      data:user
+      data: user,
     });
   }
-  deleteUser(user){
+  deleteUser(user) {
     return Axios({
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,
       method: "DELETE",
-      data:user
-    })
+      data: user,
+    });
   }
-  searchUser(tuKhoa){
+  searchUser(tuKhoa) {
     return Axios({
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?MaNhom=GP08&tuKhoa=${tuKhoa}&soTrang=1&soPhanTuTrenTrang=20`,
       method: "GET",
-    })
+    });
+  }
+  getUserInfo(taikhoan) {
+    return Axios({
+      url:
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan",
+      method: "POST",
+      data: taikhoan,
+    });
   }
 }
 
 export const signupUserSchema = yup.object().shape({
-    taiKhoan: yup.string().required("Không được để trống"),
-    matKhau: yup.string().required("Không được để trống"),
-    email: yup
-      .string()
-      .required("Không được để trống")
-      .email("không đúng định dạng"),
-    hoTen: yup.string().required("Không được để trống").matches(/[a-zA-Z]+$/,"Tên Phải là chữ từ a-z,A-Z"),
-    soDt: yup
-      .string()
-      .required("Không được để trống")
-      .matches(/^(0|\+84)+([0-9]{9,10}\b)+$/,"Số điện thoại phải từ 0-9"),
-    maNhom: yup.string().required("Không được để trống"),
-  });
-
+  taiKhoan: yup.string().required("Không được để trống"),
+  matKhau: yup.string().required("Không được để trống"),
+  email: yup
+    .string()
+    .required("Không được để trống")
+    .email("không đúng định dạng"),
+  hoTen: yup
+    .string()
+    .required("Không được để trống")
+    .matches(/[a-zA-Z]+$/, "Tên Phải là chữ từ a-z,A-Z"),
+  soDt: yup
+    .string()
+    .required("Không được để trống")
+    .matches(/^(0|\+84)+([0-9]{9,10}\b)+$/, "Số điện thoại phải từ 0-9"),
+});
+export const userInfoSchema = yup.object().shape({
+  matKhauCu: yup.string().required("Không được để trống"),
+  matKhau: yup.string().required("Không được để trống"),
+  xacNhanMatKhau: yup
+    .string()
+    .required("Không được để trống")
+    .oneOf([yup.ref("matKhau"), null], "Mật khẩu không trùng khớp"),
+});
