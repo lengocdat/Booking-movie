@@ -2,9 +2,6 @@
     box-sizing: border-box;
 }
 .cinema{
-    .cinema__img-top{
-
-    }
     .cinema__systems{
         max-height: 650px;
         border: 1px solid #ebebec;
@@ -205,23 +202,25 @@
         }
     }
 }
-
-@media screen and (max-width:576px){
+@media screen and (max-width:768px){
     .cinema{
         .cinema__systems{
-            max-height: 400px;
+            padding: 0;
+            overflow: auto;
             ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
                 .cinema__systems-logo{
                     cursor: pointer; 
-                    height:60px;
-                    padding:5px;
+                    height:75px;
+                    width: 65px;
+                    margin-right:15px;
+                    padding: 0;
                     border-bottom: 1px solid #ebebec;
-                    img{
-                        width: 100%;
-                        border-radius: 50%;
-                                         
-                    }
-                } 
+                }
             }
         }
         .cinema__cinemalist{
@@ -232,6 +231,7 @@
                 img{
                     width: 45px;
                     height: 45px;
+                
                 }
                 h4{
                     font-size: 14px;
@@ -275,4 +275,6 @@
             }
         }
     }
+
+    
 }

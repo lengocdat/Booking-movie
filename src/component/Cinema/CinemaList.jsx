@@ -42,7 +42,7 @@ class CinemaList extends Component {
             <div className="cinema__img-top">
               <img src="/img/back-news.png" className="col-12" alt="img" />
             </div>
-            <div className="col-1 cinema__systems">
+            <div className="col-12 col-md-1 col-sm-12 col-lg-1 col-xl-1 cinema__systems">
               <ul>
                 {this.props.cinemaSystemList.map((hethongrap, index) =>   
                   (
@@ -64,7 +64,7 @@ class CinemaList extends Component {
                 ))}
               </ul>
             </div>
-            <div className="col-5 cinema__cinemalist">
+            <div className="col-6 col-md-5 col-sm-6 col-lg-6 col-xl-6 cinema__cinemalist">
               {this.props.cinema.map((rap, index) => (
                 <div className={index===this.state.rapselected ? "active cinema__cinemalist-item" : "cinema__cinemalist-item"} key={index} 
                 onClick={() => {
@@ -114,6 +114,7 @@ class CinemaList extends Component {
 
 const mapstateToProps = (state) => ({
   cinemaSystemList: state.CinemaReducer.cinemaSystemArray,
+  loadinganderror:state.CinemaReducer,
   cinema: state.CinemaReducer.cinemaArray,
   filmOfCinema: state.FilmReducer.filmOfCinemaArray,  
   User: state.UserReducer.credentials,
