@@ -7,7 +7,6 @@
             img {
                 width: 100%;
                 height: 650px; 
-                filter: blur(15px);
                 padding-top: 20px;
             }
         }
@@ -83,12 +82,14 @@
         }
        }
        .filmdetail__detail{
+           
             width: 100%;
-            height: 300px;
+            height: 200px;
+            
             margin-top: 80px;
             p{
-                color: #e9e9e9;
-                font-size:14px;
+                color: #000;
+                font-size:20px;
             }
             h6{
                 font-size:24px;
@@ -131,6 +132,10 @@
                 text-align: center;
                 margin-top: 20px;
                 width: 100%;
+                //de thu vien
+                .star-container{
+                    padding:0!important;
+                }
             }  
         }
     }
@@ -167,13 +172,14 @@
                     opacity: 1;
                 }
             }
-            .col-9{
+            .col-8, .col-md-8, .col-sm-8, .col-lg-9, .col-xl-9{
                 padding:0;
-                
             }
             .filmdetail__lichchieu__detail{
                 box-shadow: 0 0 15px #888888;
                 height: 100%;
+                max-height: 100%;
+                overflow: auto;
                 .filmdetail__lichchieu__day{
                     box-shadow: 0 0 15px #888888;
                     display: flex;
@@ -225,6 +231,124 @@
                     }
                     .filmdetail__lichchieu__detail-item1{
                         display: flex;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1200px){
+    .filmdetail {
+        .filmdetail__position{
+        .filmdetail__film {
+            .filmdetail__rating{
+                width: 100%;
+                height: 300px;
+                .filmdetail__rating__score{
+                    width: 125px;
+                    height: 125px;
+                    border-radius: 50%;
+                    border: 10px solid #7ed321;
+                    background: #000;
+                    text-align:center;
+                    line-height:105px;
+                    margin:80px auto 0;
+                    
+                    span{
+                        font-size:53px;
+                        color: #fff;  
+                    }
+                }
+                .filmdetail__rating__star{
+                    text-align: center;
+                    margin-top: 20px;
+                    width: 100%;
+                    //de thu vien
+                    .star-container{
+                        padding:0!important;
+                        .widget-svg{
+                            width: 40px!important;
+                            height: 40px!important;
+                        }
+                    }
+                }  
+            }
+        }
+        }
+        .filmdetail__lichchieu{
+            .container{
+                ul{
+                    li{
+                        padding: 20px 0;
+                        img{
+                            width: 50px;
+                            height: 50px;
+                            margin-right: 10px;
+                        }
+                        h3{
+                            font-size:16px;
+                            line-height: 42px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:768px){
+    .filmdetail {
+        .filmdetail__position{
+        .filmdetail__film {
+            .filmdetail__rating{
+                display: none;
+            }
+        }
+        }
+        .filmdetail__lichchieu{
+            .container{
+                ul{
+                    li{
+                        padding: 20px 0;
+                        img{
+                            width: 50px;
+                            height: 50px;
+                            margin-right: 10px;
+                        }
+                        h3{
+                            font-size:16px;
+                            line-height: 42px;
+                        }
+                    }
+                }
+                .filmdetail__lichchieu__detail{
+                    .filmdetail__lichchieu__detail-items{
+                        a{
+                            
+                            font-size: 18px;
+                            padding:5px 10px;
+                            margin-right: 15px;
+                            margin-top: 5px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:576px){
+    .filmdetail {
+        .filmdetail__lichchieu{
+            .container{
+                ul{
+                    li{
+                        img{
+                            width: 40px;
+                            height: 40px;
+                        }
+                        h3{
+                            font-size:14px;
+                        }
                     }
                 }
             }

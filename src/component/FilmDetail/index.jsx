@@ -41,7 +41,7 @@ class FilmDetail extends Component {
 
                     <div className="filmdetail__position__background">
                         <div className="filmdetail__position__background-img">
-                            <img src={this.props.filmDetail.hinhAnh} alt="" />
+                            <img src="/img/detail.jpg" alt="" />
                         </div>
                         <div className="filmdetail__position__background-bubble">
                             <img src="/img/bubble.png" alt="img"/>
@@ -56,16 +56,16 @@ class FilmDetail extends Component {
                     <div className="filmdetail__film">
                         <div className="container">
                             <div className="row">
-                                <div className="col-3 filmdetail__film-img">
+                                <div className="col-6 col-md-3 col-sm-6 col-lg-3 col-xl-3 filmdetail__film-img">
                                     <img src={this.props.filmDetail.hinhAnh} alt="" />
                                 </div>
-                                <div className="col-5 filmdetail__detail">
-                                    <p>{this.props.filmDetail.ngayKhoiChieu}</p>
+                                <div className="col-6 col-md-5 col-sm-6 col-lg-5 col-xl-5 filmdetail__detail">
+                                    <p>{this.props.filmDetail.ngayKhoiChieu?.substring(0, 10)}</p>
                                     <h6>{this.props.filmDetail.tenPhim}</h6>
-                                    <p>{this.props.filmDetail.thoiLuong}</p>
+                                    <p>{this.props.filmDetail?.lichChieu?.thoiLuong}</p>
                                     <button>MUA VÉ NGAY</button>
                                 </div>
-                                <div className="col-4 filmdetail__rating">
+                                <div className="col-md-4 col-lg-4 col-xl-4 filmdetail__rating">
                                     <div className="filmdetail__rating__score">
                                         <span>{this.props.filmDetail.danhGia}</span>
                                     </div>
@@ -84,7 +84,7 @@ class FilmDetail extends Component {
                     <div className="filmdetail__lichchieu">
                         <div className="container">
                             <div className="row">
-                                <div className="col-3">
+                                <div className="col-5 col-md-4 col-sm-5 col-lg-3 col-xl-3">
                                     <ul>
                                         {this.props.cinemaSystemList.map((hethongrap, index) => (
                                         <li   
@@ -102,7 +102,7 @@ class FilmDetail extends Component {
                                         ))}  
                                     </ul>
                                 </div>
-                                <div className="col-9">
+                                <div className="col-7 col-md-8 col-sm-7 col-lg-9 col-xl-9">
                                     <div className="filmdetail__lichchieu__detail">
                                         <div className="filmdetail__lichchieu__day">
                                             {ngayChieu.map((ngay,index)=>(
