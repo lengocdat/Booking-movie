@@ -64,7 +64,7 @@ class CinemaList extends Component {
                 ))}
               </ul>
             </div>
-            <div className="col-6 col-md-5 col-sm-6 col-lg-6 col-xl-6 cinema__cinemalist">
+            <div className="col-6 col-md-5 col-sm-6 col-lg-5 col-xl-5 cinema__cinemalist">
               {this.props.cinema.map((rap, index) => (
                 <div className={index===this.state.rapselected ? "active cinema__cinemalist-item" : "cinema__cinemalist-item"} key={index} 
                 onClick={() => {
@@ -81,7 +81,7 @@ class CinemaList extends Component {
                 </div>
               ))}
             </div>
-            <div className="col-6 cinema__film">
+            <div className="col-6 col-md-6 col-sm-6 col-lg-6 col-xl-6  cinema__film">
               {this.props.filmOfCinema[0]?.lstCumRap.find((item) => item.maCumRap ===this.state.currentMaCumRap)
               ?.danhSachPhim?.map((phim,index)=>(
                    <div key={index}>
