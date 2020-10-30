@@ -54,19 +54,16 @@
                     padding:9px 0;
                 }
             }
-            .signin__content__bottom__signup{
+            ul{
                 margin-top: 20px;
                 padding: 0px;
-                
+                display: flex;
+                justify-content: space-between;
                 li {
-                    display: inline-block;
                     a{
                         text-decoration: none;
                         color: #fff;
                     }
-                }
-                .signin__content__bottom__signup-right{
-                    margin-left: 213px;
                 }
             }
         }    

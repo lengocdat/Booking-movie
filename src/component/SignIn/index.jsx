@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./index.scss";
 import { Link, withRouter } from "react-router-dom";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { connect } from "react-redux";
 import { fetchCredentials } from "../../action/credentialActions";
+import  SignupModal  from "./SignupModal";
 class SignIn extends Component {
   handleNavigateUser = () => {
     if (this.props.User) {
@@ -17,6 +18,24 @@ class SignIn extends Component {
   componentDidUpdate() {
     this.handleNavigateUser();
   }
+  renderinput = (name, handleChange, type, placeholder) => (
+    <div>
+      <Field
+        type={type}
+        name={name}
+        onChange={handleChange}
+        placeholder={placeholder}
+      />
+      <ErrorMessage name={name}>
+        {(msg) => (
+          <div className="alert alert-danger">
+            {msg}
+          </div>
+        )}
+      </ErrorMessage>
+    </div>
+  );
+  
   render() {
     return (
       <>
@@ -37,39 +56,30 @@ class SignIn extends Component {
             >
               {(formikProps) => (
                 <>
-                  <Form >
+                  <Form id="signin-form">
                     <div className="field__group">
                       <i className="fa fa-user"></i>                     
-                      <Field
-                      type="text"
-                      name="taiKhoan"
-                      onChange={formikProps.handleChange}
-                      placeholder="Tài Khoản"
-                      />
+                     {this.renderinput("taiKhoan", formikProps.handleChange, "text", "Tài Khoản")}
                     </div>
                     <div className="field__group">
                       <i className="fa fa-lock"></i>
-                      <Field
-                        type="password"
-                        name="matKhau"
-                        onChange={formikProps.handleChange}
-                        placeholder="Mật Khẩu"
-                      />
+                      {this.renderinput("matKhau", formikProps.handleChange, "password", "Mật Khẩu")}
                     </div>
                     <div className="signin__content__bottom__button">
-                      <button type="submit">
+                      <button form="signin-form" type="submit">
                         Đăng Nhập
                       </button>
                     </div>
-                    <ul className="signin__content__bottom__signup">
+                  </Form>
+                  <SignupModal />
+                    <ul>
                       <li>
-                        <Link to="/signup">Đăng Kí</Link>
+                        <a data-toggle="modal" data-target="#modelIdSignUp">Đăng Kí</a>
                       </li>
-                      <li className="signin__content__bottom__signup-right">
+                      <li >
                         <Link to="/" >Trang Chủ</Link>
                       </li> 
                     </ul>
-                  </Form>
                 </>
               )}
             </Formik>
