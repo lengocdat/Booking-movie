@@ -164,7 +164,6 @@ export class ModalAdd extends Component {
 
 export class ModalUpdate extends Component {
   updateUser = (values) => {
-    console.log(values);
     UserService.updateUser(values)
       .then(() => {
         Swal.fire({
@@ -185,7 +184,7 @@ export class ModalUpdate extends Component {
       })
   }
   render() {
-    const {user}= this.props;
+    const {user} = this.props
     return (
       <>
         <div className="modal fade" id={user?.taiKhoan} tabIndex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

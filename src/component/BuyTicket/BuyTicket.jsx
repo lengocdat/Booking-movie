@@ -15,9 +15,11 @@ class BuyTicket extends Component {
             filmInfo: {},
             currentChair: [],
             tenGhe: [],
+            time:"",
         };
     }
     componentDidMount() {
+        this.CountDown(300);
         Schedule.getRomTicket(this.props.match.params.showtimeid)
             .then((res) => {
                 this.setState({
@@ -28,6 +30,7 @@ class BuyTicket extends Component {
             .catch((err) => {
                 console.log(err);
             });
+        
     }
 
     datve = (values) => {
@@ -68,6 +71,35 @@ class BuyTicket extends Component {
             this.setState({ tenGhe: nameArray });
         };
     }
+    //thoi gian giu ghe
+    CountDown = (thoigian) =>{
+        let time = thoigian,minutes, seconds;
+        let interVal = setInterval(()=>{
+            time -= 1;
+            minutes = parseInt(time/60,10);
+            seconds = parseInt(time%60,10);
+            
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            this.setState({
+                time:`${minutes}:${seconds}`
+            })
+            if (+time === 0) {
+                clearInterval(interVal);
+                time = thoigian
+                Swal.fire({
+                    title: 'Hết thời gian đặt vé',
+                    icon: 'warning',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Đặt Vé Lại'
+                }).then(() => 
+                    window.location.reload(true)
+                )
+            }
+        },1000)
+    }
+
+
     render() {
         const datVe = {
             maLichChieu: +this.props.match.params.showtimeid,
@@ -139,7 +171,7 @@ class BuyTicket extends Component {
                         <div className="buyticket__right_price">
                             <p>Ghế: {this.state.tenGhe?.reduce((tongghe, tenghe) => tongghe + tenghe + " ", "")}</p>
                             <p>{this.state.currentChair?.reduce((tonggia, item) => tonggia + item.giaVe, 0)}đ</p>
-                            <p>Thời gian giữ ghế:</p>
+                            <p>Thời gian giữ ghế:{this.state.time}</p>
                         </div>
                         <div>
                             <button className="buyticket__right__book" onClick={() => { this.datve(datVe) }}>Đặt Vé</button>

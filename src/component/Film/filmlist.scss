@@ -20,14 +20,19 @@
     text-align: center;
     margin: 50px 0;
     a{
-      font-size:20px;
+      font-size:24px;
       margin-right: 20px;
       text-decoration: none;
       color: #000000;
+      transition: all .5s;
+      font-weight: 500;
+    }
+    a:hover{
+      font-size: 28px;
     }
     .filmlist__status-active{
       color: #fa5238;
-      font-size: 24px;
+      font-size: 28px;
       cursor: default;
     }
   }
@@ -127,7 +132,7 @@
     }
   }
 }
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .filmlist{
     .filmList__content{
       .filmlist__content__play{
@@ -174,7 +179,7 @@
     }
   }}
 
-  @media only screen and (max-width: 992px) {
+  @media screen and (max-width: 992px) {
     .filmlist{
       .filmlist__previous {
         width: 50px;
@@ -218,7 +223,7 @@
       }
     }}
 
-    @media only screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       .filmlist{
         .filmlist__previous {
           width: 50px;
@@ -228,12 +233,6 @@
         }
         .filmlist__status{
           margin: 30px 0;
-          a{
-            font-size:18px;
-          }
-          .filmlist__status-active{
-            font-size: 22px;
-          }
         }
         .filmList__content{
           .filmlist__content__play{
@@ -268,7 +267,7 @@
         }
       }}
 
-      @media only screen and (max-width: 576px) {
+      @media screen and (max-width: 576px) {
         .filmlist{
           .filmlist__previous {
             display: none;
@@ -278,6 +277,17 @@
           }
           .filmlist__status{
             margin: 20px 0;
+            a{
+              font-size:18px;
+              margin-right: 20px;
+              font-weight: 500;
+            }
+            a:hover{
+              font-size: 22px;
+            }
+            .filmlist__status-active{
+              font-size: 22px;
+            }
           }
           .filmList__content{
             .filmlist__content__play{

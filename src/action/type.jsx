@@ -8,3 +8,4 @@ export const FETCH_CINEMA_SYSTEM = createActionType('FETCH_CINEMA_SYSTEM');
 export const FETCH_CREDENTIALS = createActionType('FETCH_CREDENTIALS');
 export const FETCH_ROOM_TICKET = createActionType('FETCH_ROOM_TICKET');
 export const LOGOUT = createActionType('LOGOUT');
+export const maNhom ="GP08"

@@ -8,8 +8,6 @@ export default class News extends Component {
         <div className="container">
           <div className="news__nav">
             <span className="news__nav__active">Điện Ảnh 24h</span>           
-            <span>Review</span>      
-            <span>Khuyến mãi</span>
           </div>
           <div className="row news__content">
             <div className="container">

@@ -4,7 +4,7 @@ import './adminmanager.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../action/credentialActions';
-import FilmManager from './FilmManager/Filmmanager';
+import FilmManager1 from './FilmManager';
 class AdminManager extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +12,7 @@ class AdminManager extends Component {
     }
     rendercomponent() {
         if(this.state.changeComponent==="film"){
-            return <FilmManager/>
+            return <FilmManager1/>
         }
         if(this.state.changeComponent==="user"){
             return <UserManager/>
@@ -38,7 +38,7 @@ class AdminManager extends Component {
                                 <a>Quản lí người dùng</a>
                             </li>
                             <li onClick={() => this.props.history.push('/')}>
-                                <i class="fa fa-home"></i>
+                                <i className="fa fa-home"></i>
                                 <a>Go Home</a>
                             </li>
                             <li onClick={() => { this.props.dispatch(logout()) }}>

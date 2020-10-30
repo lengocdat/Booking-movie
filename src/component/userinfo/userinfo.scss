@@ -10,9 +10,15 @@
         padding:60px 40px;
         .userinfo__left{
             text-align: center;
+            img{
+                width: 150px;
+                border-radius: 50%;
+                border: 10px solid #00c4eb;
+                margin-bottom: 20px;
+            }
             h4{
                 font-size: 24px;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 color: #fff;
             }
             p{
@@ -35,6 +41,7 @@
             }
         }
         .userinfo__right{
+            
             h3{
                 text-align: center;
                 color: #fff;
@@ -87,7 +94,7 @@
             .userinfo__right__table{
                 tr,th{
                     color: #fff;
-                    padding:10px 0;
+                    padding:10px 2px;
                 }
                 border: 1px solid #fff;
                 tr th{
@@ -110,4 +117,37 @@
             }
         }
     }
+}
+@media screen and (max-width:992px){   
+    .userinfo{
+        .container{
+            .userinfo__right{
+                .userinfo__right__table{
+                    th{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+    }
+    
+}
+@media screen and (max-width:576px){   
+    .userinfo{
+        .container{
+            .userinfo__right{
+                .userinfo__right__table{
+                    thead tr th:nth-child(1),thead tr th:nth-child(3),thead tr th:nth-child(4) {
+                        width: 20%;
+                    }
+                    th{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+
+    }
+    
 }

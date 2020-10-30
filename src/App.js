@@ -4,8 +4,7 @@ import DuAnWebPhim from "./component/DuAnWebPhim";
 import SignIn from "./component/SignIn";
 import FilmDetail from "./component/FilmDetail";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import SignUp from "./component/SignUp";
-import Userinfo from "./component/userinfo/Userinfo";
+import Userinfo from "./component/UserInfo/Userinfo";
 import { connect } from "react-redux";
 import { createAction } from "./action";
 import { FETCH_CREDENTIALS } from "./action/type";
@@ -13,7 +12,7 @@ import Adminmanager from "./component/AdminManager/Adminmanager";
 import BuyTicket from "./component/BuyTicket/BuyTicket";
 import AdminRoute from "./component/Route/AdminRoute";
 import UserRoute from "./component/Route/UserRoute";
-import Filmmanager from "./component/AdminManager/FilmManager/Filmmanager";
+import Filmmanager from "./component/AdminManager/FilmManager";
 import UserManager from "./component/AdminManager/UserManager";
 class App extends Component {
   render() {
@@ -22,7 +21,6 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={DuAnWebPhim} />
           <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
           <Route path="/userinfo" component={Userinfo} />
           <Route path="/detail/:filmid" component={FilmDetail} />
           <AdminRoute path="/admin" component={Adminmanager} />

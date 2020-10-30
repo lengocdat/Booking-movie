@@ -274,7 +274,7 @@ class Userinfo extends Component {
   };
   renderHistorybooking = () => {
     return (
-      <>
+      <div className="table-responsive">
         <h3>Lịch sử đặt vé</h3>
         <table className="table userinfo__right__table">
           <thead>
@@ -315,7 +315,7 @@ class Userinfo extends Component {
             )}
           </tbody>
         </table>
-      </>
+      </div>
     );
   };
   rendernavigation = () => {
@@ -338,9 +338,9 @@ class Userinfo extends Component {
         <div className="userinfo">
           <div className="container">
             <div className="row">
-              <div className="col-3 userinfo__left">
-                <img src="" alt="" />
-                <h4>ID: {user?.taiKhoan}</h4>
+              <div className="col-12 col-md-4 col-sm-12 col-lg-3 col-xl-3 userinfo__left">
+                <img src="/img/avatar.png" alt="img"/>
+                <h4>Hi, {user?.taiKhoan}</h4>
                 <p
                   className={this.isAtive("userinfo")}
                   onClick={() => {
@@ -366,7 +366,7 @@ class Userinfo extends Component {
                   Lịch Sử Đặt Vé
                 </p>
               </div>
-              <div className="col-9 userinfo__right">
+              <div className="col-12 col-md-8 col-sm-12 col-lg-9 col-xl-9 userinfo__right">
                 {this.rendernavigation()}
               </div>
             </div>

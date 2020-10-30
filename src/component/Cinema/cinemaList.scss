@@ -278,3 +278,65 @@
 
     
 }
+@media screen and (max-width:576px){
+    .cinema{
+        .cinema__systems{
+            ul{
+                overflow: auto;
+                .cinema__systems-logo{
+                    height:45px;
+                    width: 35px;
+                    margin-right:10px;
+                }
+            }
+        }
+        .cinema__cinemalist{
+            max-height: 400px;
+            .cinema__cinemalist-item{
+                padding:5px;
+                height:60px;
+                img{
+                    width: 45px;
+                    height: 45px;
+                
+                }
+                h4{
+                    font-size: 10px;
+                }
+                p {
+                    font-size: 10px;
+                }
+            }
+        }
+        .cinema__film{
+            padding: 5px;
+            h3{
+                font-size: 12px;
+            }
+            .cinema__film-film{
+                img{
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 10px; 
+                }
+                h4{
+                    font-size: 12px;
+                }
+                span{
+                    border-radius: 5px;
+                    font-size: 12px;
+                }
+            }
+            .cinema__film-time{
+                a{   
+                    font-size: 12px;
+                    padding:2px 5px;
+                    margin-right: 5px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    
+}

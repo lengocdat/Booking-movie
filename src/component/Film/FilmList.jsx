@@ -10,6 +10,8 @@ class FilmList extends Component {
     this.state = {
       show: false,
       srcModal: "",
+      changeComponent:"dangchieu",
+      disabled:"disabled"
     };
   }
   componentDidMount() {
@@ -61,10 +63,10 @@ class FilmList extends Component {
         />
         <div className="container">
           <div className="filmlist__status">
-            <Link to="/" className="filmlist__status-active" disabled="disabled">
+            <Link to="/" className={this.state.changeComponent==="dangchieu"?"filmlist__status-active":""} onClick={() =>this.setState({changeComponent:"dangchieu"})}>
               Đang Chiếu
             </Link>
-            <Link to="/">Sắp Chiếu</Link>
+            <Link to="/" className={this.state.changeComponent==="sapchieu"?"filmlist__status-active":""} onClick={() =>this.setState({changeComponent:"sapchieu"})}>Sắp Chiếu</Link>
           </div>
           <div className="row">
             {this.renderModal()}
@@ -76,7 +78,8 @@ class FilmList extends Component {
                 <Link to={`/detail/${item.maPhim}`}>
                   <div className="card card__config">
                     <div className="card__config__img">
-                      <img src={item.hinhAnh} alt="img" />
+                      <img src={item.hinhAnh} alt="img" onError={(evt) => {
+                 evt.target.src = "img/error404.jpg"}}/>
                     </div>
                     <div className="card__body">
                       <h6 className="card-title">

@@ -58,7 +58,6 @@ class CinemaList extends Component {
                   >
                     <div className="cinema__systems-logo">
                       <img src={hethongrap.logo} alt="img"/>
-                      <p className="active1 active2"></p>
                     </div>
                   </li>
                 ))}
@@ -86,7 +85,8 @@ class CinemaList extends Component {
               ?.danhSachPhim?.map((phim,index)=>(
                    <div key={index}>
                      <div className="cinema__film-film">
-                        <img src={phim.hinhAnh}alt="img"/>
+                        <img src={phim.hinhAnh}alt="img" onError={(evt) => {
+                 evt.target.src = "img/error404.jpg"}} />
                         <h4><span>C16</span> {phim.tenPhim}</h4>
                       </div>
                       <h3>2D Digitals</h3>

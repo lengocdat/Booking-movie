@@ -8,7 +8,7 @@ export default class CarouselPage extends Component {
         super(props);
         this.state = {
             index: 0,
-            srcModal:"https://www.youtube.com/embed/0WWzgGyAH6Y"
+            srcModal:""
         }
     }
     renderModal = () => (
@@ -40,36 +40,40 @@ export default class CarouselPage extends Component {
                                     <img src="/img/play-video.png" alt = "img"  onClick={() =>
                                     this.setState({
                                     show: true,
+                                    srcModal:"https://www.youtube.com/embed/J8riYadR3Nk"
                                     })
                                 } />
                                 </div>
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img className="d-block w-100" src="/img/cau-be-nguoi-go-15961359597877.jpg" alt="First slide" />
+                                <img className="d-block w-100" src="/img/cau-be-nguoi-go-15961359597877.jpg" alt="Second slide" />
                                 <div className="carousel-caption carousel-caption__fix">
                                     <img src="/img/play-video.png" alt = "img" onClick={() =>
                                     this.setState({
                                     show: true,
+                                    srcModal:"//www.youtube.com/embed/-nYmaSu952o"
                                     })
                                     } />
                                 </div>
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img className="d-block w-100" src="/img/mortal-15961360468025.png" alt="First slide" />
+                                <img className="d-block w-100" src="/img/mortal-15961360468025.png" alt="3rd slide" />
                                 <div className="carousel-caption carousel-caption__fix">
                                     <img src="/img/play-video.png" alt = "img" onClick={() =>
                                     this.setState({
                                     show: true,
+                                    srcModal:"https://www.youtube.com/embed/wwVwt6-QOUM"
                                     })
                                     }  />
                                 </div>
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img className="d-block w-100" src="/img/du-lich-chet-choc-15961360123636.jpg" alt="First slide" />
+                                <img className="d-block w-100" src="/img/du-lich-chet-choc-15961360123636.jpg" alt="4th slide" />
                                 <div className="carousel-caption carousel-caption__fix">
                                     <img src="/img/play-video.png" alt = "img" onClick={() =>
                                     this.setState({
                                     show: true,
+                                    srcModal:"https://www.youtube.com/embed/o3Q9LETlHqk"
                                     })
                                     }  />
                                 </div>

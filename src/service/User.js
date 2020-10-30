@@ -1,88 +1,38 @@
-import Axios from "axios";
+import axiosClient from "../Utils/axiosClient";
 import * as yup from "yup";
+import { maNhom } from "../action/type";
 export class UserServices {
-  signUp(data) {
-    return Axios({
-      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
-      method: "POST",
-      data,
-    });
-  }
-
-  signIn(user) {
-    return Axios({
-      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
-      method: "POST",
-      data: user,
-    });
-  }
-
-  getUser(curentpage) {
-    return Axios({
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=GP08&soTrang=${curentpage}&soPhanTuTrenTrang=20`,
-      method: "GET",
-    });
-  }
-  addUser(user) {
-    return Axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
-      method: "POST",
-      data: user,
-    });
-  }
-  updateUser(user) {
-    return Axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
-      method: "PUT",
-      data: user,
-    });
-  }
-  deleteUser(user) {
-    return Axios({
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,
-      method: "DELETE",
-      data: user,
-    });
-  }
-  searchUser(tuKhoa) {
-    return Axios({
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?MaNhom=GP08&tuKhoa=${tuKhoa}&soTrang=1&soPhanTuTrenTrang=20`,
-      method: "GET",
-    });
-  }
-  getUserInfo(taikhoan) {
-    return Axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan",
-      method: "POST",
-      data: taikhoan,
-    });
-  }
+  signUp=(data)=> axiosClient.post(`QuanLyNguoiDung/DangKy`, data)
+  signIn=(user)=> axiosClient.post(`QuanLyNguoiDung/DangNhap`, user)
+  getUser=(curentpage)=> axiosClient.get(`QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=${maNhom}&soTrang=${curentpage}&soPhanTuTrenTrang=20`)
+  addUser=(user)=> axiosClient.post(`QuanLyNguoiDung/ThemNguoiDung`, user)
+  updateUser=(user)=> axiosClient.post(`QuanLyNguoiDung/CapNhatThongTinNguoiDung`, user)
+  deleteUser=(user)=> axiosClient.post(`QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`, user)
+  searchUser=(tuKhoa)=> axiosClient.get(`QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?MaNhom=${maNhom}&tuKhoa=${tuKhoa}&soTrang=1&soPhanTuTrenTrang=20`)
+  getUserInfo=(taikhoan)=> axiosClient.post(`QuanLyNguoiDung/ThongTinTaiKhoan`, taikhoan)
 }
 
 export const signupUserSchema = yup.object().shape({
-  taiKhoan: yup.string().required("Không được để trống"),
-  matKhau: yup.string().required("Không được để trống"),
+  taiKhoan: yup.string().required("Mời nhập tài khoản"),
+  matKhau: yup.string().required("Mời nhập mật khẩu"),
   email: yup
     .string()
-    .required("Không được để trống")
+    .required("Mời nhập email")
     .email("không đúng định dạng"),
   hoTen: yup
     .string()
-    .required("Không được để trống")
-    .matches(/[a-zA-Z]+$/, "Tên Phải là chữ từ a-z,A-Z"),
+    .required("Mời nhập Tên")
+    .matches(/[a-zA-Z]+$/, "Tên Phải là chữ"),
   soDt: yup
     .string()
-    .required("Không được để trống")
-    .matches(/^(0|\+84)+([0-9]{9,10}\b)+$/, "Số điện thoại phải từ 0-9"),
+    .required("Mời nhập số điện thoại")
+    .matches(/^(0|84)+([0-9]{9,10}\b)+$/, "Số điện thoại bắt đầu từ 0 và gồm 10 hoặc 11 số "),
 });
 export const userInfoSchema = yup.object().shape({
-  matKhauCu: yup.string().required("Không được để trống"),
-  matKhau: yup.string().required("Không được để trống"),
+  matKhauCu: yup.string().required("Mời nhập mật khẩu hiện tại"),
+  matKhau: yup.string().required("Mời nhập mật khẩu mới"),
   xacNhanMatKhau: yup
     .string()
-    .required("Không được để trống")
+    .required("Mời Nhập lại mật khẩu")
     .oneOf([yup.ref("matKhau")], "Mật khẩu không trùng khớp"),
 });
