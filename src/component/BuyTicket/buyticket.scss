@@ -32,7 +32,7 @@
                     margin: 0 auto;
                 }
                 .container{
-                    padding: 0 20%;
+                    padding: 0 10%;
                 }
                 .rowseat{
                     display: flex;
@@ -46,7 +46,8 @@
                         outline:none;
                     }
                     span{
-                        margin-right: 60px;
+                        margin: 0;
+                        padding: 0;
                         width: 23px;
                     }
                     .seat-nomal,.seat,.seat-chose,.seat-reserved{
@@ -62,7 +63,6 @@
                         padding: 0;
                         margin-bottom: 15px;
                         span{
-                            margin:0;
                             color: #000;
                             display:none;   
                         }
@@ -73,7 +73,6 @@
                         font-size: 12px;
                         padding: 0;
                         span{
-                            margin:0;
                             color: #000;
                             display:none;  
                         }
@@ -222,7 +221,21 @@
                        }
                     }
                     .container{
-                        padding: 0 10%;
+                        padding: 0 9%;
+                    }
+                    .rowseat{
+                        .seat-chose{
+                            span{
+                                font-size: 9px; 
+                            }
+                        }
+                        .seat-nomal,.seat,.seat-chose,.seat-reserved{
+                            margin-right: 14px;
+                            width: 23px;
+                            height: 23px;
+                            border-radius:10px 10px 5px 5px;
+                        }
+                        
                     }
                     .seatinfo{
                         margin-top: 50px;
@@ -339,6 +352,26 @@
                     display: inline-block;
                     font-size: 15px;
                     margin: 0;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .buyticket{
+        .buyticket__left{
+            .buyticket__left__content{
+                .buyticket__left__content-body {
+                    .rowseat{
+                        .seat-chose{
+                            span{
+                                display: none;
+                            }
+                        }
+                    } 
+                    .container{
+                        padding: 0 6%;
+                    }
                 }
             }
         }

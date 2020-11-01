@@ -1,6 +1,6 @@
-import { ErrorMessage, Field, Formik } from 'formik';
-import React, { Component } from 'react'
-import { Form } from 'react-bootstrap';
+import { ErrorMessage, Field, Formik, Form } from 'formik';
+import React, { Component } from 'react';
+
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { UserService } from '../../service';
@@ -8,7 +8,7 @@ import { signupUserSchema } from '../../service/User';
 import "./signup.scss";
 
 export default class SignupModal extends Component {
-  handleSubmit = (values) => {
+  handleSubmit = (values, e) => {
     UserService
       .signUp(values)
       .then(() => {
@@ -18,7 +18,7 @@ export default class SignupModal extends Component {
           title: 'Đăng Kí Thành Công',
           showConfirmButton: false,
           timer: 1500
-        }).then(()=><Link to="/signin"></Link>)
+        })
       })
       .catch(err => {
         Swal.fire({
@@ -98,8 +98,9 @@ export default class SignupModal extends Component {
                         <option>GP010</option>
                       </Field>
                       <ErrorMessage name="maNhom" />
-                      <div className="signup__content__button">
+                      <div className="signup__content__button modal-footer">
                         <button form="signup-form" type="submit">Đăng ký</button>
+                        <button type="button" data-dismiss="modal">Close</button>
                       </div>
                     </Form>
                   </div>

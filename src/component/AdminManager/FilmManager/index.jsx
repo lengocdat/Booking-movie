@@ -14,6 +14,9 @@ export default class FilmManager1 extends Component {
       itemFilm:5,
       itemSearch:5,
       filmArray: [],
+      currentPageSearch:1,
+      totalPageSearch:null,
+      name:""
     };
   }
 
@@ -36,6 +39,11 @@ export default class FilmManager1 extends Component {
     await this.setState({ currentPage: newPage });
     this.getFilmOfPage();
   };
+
+  handlePageSearch = async (newPage) => {
+    await this.setState({ currentPageSearch: newPage})
+    this.searchFilm()
+  }
 
   confirmDelete = (values) => {
     Swal.fire({
@@ -61,7 +69,7 @@ export default class FilmManager1 extends Component {
           title: 'Xóa Thành Công',
           showConfirmButton: false,
           timer: 1500
-        }).then(() => window.location.reload())
+        })
       })
       .catch(err => {
         Swal.fire({
@@ -72,24 +80,55 @@ export default class FilmManager1 extends Component {
       })
   }
 
-  searchFilm = (values,) => {
-    if(values.name.length)
-    FilmService.searchFilm(values.name, this.state.itemSearch)
+  searchFilm = (values) => {
+    if(values.name!==""||undefined){
+    FilmService.searchFilm(values.name, this.state.itemSearch, this.state.currentPageSearch)
       .then((res) => (
         this.setState({ filmArray: res.data.items,
-          totalPages: res.data.totalPages,
-          currentPage: res.data.currentPage
+          totalPageSearch: res.data.totalPages,
+          currentPageSearch: res.data.currentPage
         })
       ))
       .catch(err => {
         console.log(err);
-      })
+      })}
     else{
       this.getFilmOfPage()
     }
   }
-  render() {
 
+  pageOfFilm=()=>(
+    <>
+      <button className="btn" disabled={this.state.currentPage===1} onClick={() => {
+        if (this.state.currentPage > 1) {
+          this.handlePageChange(this.state.currentPage - 1);
+        }
+      }}>pre</button>
+      <button className="btn btn-primary" disabled>{this.state.currentPage}/{this.state.totalPages}</button>
+      <button className="btn" disabled={this.state.currentPage===this.state.totalPages} onClick={() => {
+        if (this.state.currentPage < this.state.totalPages) {
+          this.handlePageChange(this.state.currentPage + 1);
+        }
+      }}>next</button>
+    </>
+  )
+
+  pageOfSearch=()=>(
+    <>
+      {/* <button className="btn" disabled={this.state.currentPageSearch===1} onClick={() => {
+        if (this.state.currentPageSearch > 1) {
+          this.handlePageSearch(this.state.currentPageSearch - 1);
+        }
+      }}>pre</button>
+      <button className="btn btn-primary" disabled>{this.state.currentPageSearch}/{this.state.totalPageSearch}</button>
+      <button className="btn" disabled={this.state.currentPageSearch===this.state.totalPageSearch} onClick={() => {
+        if (this.state.currentPageSearch < this.state.totalPageSearch) {
+          this.handlePageSearch(this.state.currentPageSearch + 1);
+        }
+      }}>next</button> */}
+    </>)
+
+  render() {
     return (
       <div className="film__content">
         <div className="container">
@@ -113,7 +152,7 @@ export default class FilmManager1 extends Component {
                     className="field__group"
                     placeholder="Nhập Tên Phim"
                   />
-                  <button type="submit">Tim</button>
+                  <button type="submit" onClick={() =>this.setState({currentPageSearch:1})}>Tim</button>
                 </Form>
               )}</Formik>
             </div>
@@ -137,15 +176,14 @@ export default class FilmManager1 extends Component {
                   <tr key={index}>
                     <th>{phim.maPhim}</th>
                     <th>{phim.tenPhim}</th>
-                    <th>{phim.ngayKhoiChieu}</th>
+                    <th>{phim.ngayKhoiChieu.substring(0, 10)}</th>
                     <th><img src={phim.hinhAnh} alt="" onError={(evt) => {
                     evt.target.src = "img/error404.jpg"}}/></th>
-                    <th>{phim.moTa}</th>
+                    <th>{phim.moTa.substring(0, 200)}</th>
                     <th className="table__button">
                       <ModalUpdateFilm phim={phim} />
-                      <button className="table__button-update" type="button" data-toggle="modal" data-target={`#film${phim.maPhim}`}
-                      >Cập Nhật</button>
-                      <button className="table__button-delete" onClick={() => this.confirmDelete(phim.maPhim)}>Xóa</button>
+                      <i data-toggle="modal" data-target={`#film${phim.maPhim}`} className="fa fa-edit"></i>
+                      <i onClick={() => this.confirmDelete(phim.maPhim)} className="fa fa-trash"></i>
                     </th>
                   </tr>
                 ))}
@@ -153,18 +191,7 @@ export default class FilmManager1 extends Component {
             </table>
           </div>
           <div className="film__content-page">
-            <button className="btn" disabled={this.state.currentPage===1} onClick={() => {
-              if (this.state.currentPage > 1) {
-                this.handlePageChange(this.state.currentPage - 1);
-              }
-
-            }}>pre</button>
-            <button className="btn btn-primary" disabled>{this.state.currentPage}/{this.state.totalPages}</button>
-            <button className="btn" disabled={this.state.currentPage===this.state.totalPages} onClick={() => {
-              if (this.state.currentPage < this.state.totalPages) {
-                this.handlePageChange(this.state.currentPage + 1);
-              }
-            }}>next</button>
+            {this.pageOfFilm()}
           </div>
         </div>
       </div>

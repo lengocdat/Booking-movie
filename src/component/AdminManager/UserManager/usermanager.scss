@@ -16,11 +16,17 @@
             }
         }
         .user__content-search{
+            display: flex;
+            margin-bottom: 20px;
+            .field__search{
+                width: 30%;
+            }
             button{
-                margin-bottom: 20px;
+                margin: 0;
                 background-color: #130CB7;
                 color: #fff;
             }
+
         }
         .user__content-body{
             width:100%;
@@ -44,23 +50,20 @@
                 border: 1px solid black;
             }
             .table__button{
-                width: 162px;
-                .table__button-update {
-                background-color: rgba(23, 235, 147, 0.986);
-                border: none;
-                border-radius: 5px;
-                padding: 8px;
-                margin-right: 5px;
-                font-weight: 500;
+                i{
+                    display: inline-block;
+                    font-size: 25px;
+                    margin-right: 10px;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                }
+                i:nth-child(2):hover{
+                    color: #130CB7;
+                }
+                i:nth-child(3):hover{
+                    color: #E80505;
+                }
             }
-            .table__button-delete {
-                background-color: #f00;
-                border: none;
-                border-radius: 5px;
-                padding: 8px;
-                font-weight: 500;
-            }
-            }   
         }
         .user__content-page{
             text-align: center;

@@ -18,16 +18,24 @@ class AdminManager extends Component {
             return <UserManager/>
         }
     }
+    handleNavigateUser = () => {
+        if (!this.props.User) {
+          this.props.history.push("/");
+        }
+    };
+    componentDidMount() {
+        this.handleNavigateUser();
+      }
+      componentDidUpdate() {
+        this.handleNavigateUser();
+      }
     isAtive = (name) => (this.state.changeComponent === name ? "active" : "");
     render() {
         return (
             <div className="user">
                 <nav className="user__navbar">
                     <Link className="user__navbar-name" to="/"><span>{this.props.User.hoTen?.substring(0, 15)}</span></Link>
-                    <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <div className="collapse navbar-collapse user__nav" id="collapsibleNavId">
+                    <div className="user__nav">
                         <ul>
                             <li className={this.isAtive("film")} onClick={() => this.setState({ changeComponent: "film" })}>
                                 <i className="fa fa-film"></i>

@@ -8,7 +8,7 @@ export class FilmServices {
   getFilmOfCinema = (marap) => axiosClient.get(`QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${marap}&maNhom=${maNhom}`)
   addFilm = (phim) => axiosClient.post(`QuanLyPhim/ThemPhimUploadHinh`, phim)
   deleteFilm = (maphim) => axiosClient.delete(`QuanLyPhim/XoaPhim?MaPhim=${maphim}`)
-  searchFilm = (tenphim, sophantu) => axiosClient.get(`QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP08&tenPhim=${tenphim}&soTrang=1&soPhanTuTrenTrang=${sophantu}`)
+  searchFilm = (tenphim, sophantu, page) => axiosClient.get(`QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP08&tenPhim=${tenphim}&soTrang=${page}&soPhanTuTrenTrang=${sophantu}`)
   updateFilm =(phim)=>axiosClient.post(`QuanLyPhim/CapNhatPhimUpload`,phim)
 }
 export class CinemaServices {

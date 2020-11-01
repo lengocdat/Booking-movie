@@ -187,7 +187,7 @@ export class ModalUpdate extends Component {
     const {user} = this.props
     return (
       <>
-        <div className="modal fade" id={user?.taiKhoan} tabIndex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div className="modal fade" id={`m${user?.taiKhoan}`} tabIndex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">

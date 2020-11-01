@@ -58,7 +58,7 @@ class Header extends Component {
                         <Link to="/" onClick={()=>{this.props.dispatch(logout())}}>Đăng Xuất</Link>
                       </div>
                     </div> :
-                    <Link to="/signin">
+                    <Link to="/signin" className="header__login__false">
                       <img src="/img/avatar.png" alt="img"/>
                       <span>Đăng nhập</span>
                     </Link>

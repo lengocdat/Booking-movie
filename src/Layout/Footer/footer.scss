@@ -89,6 +89,9 @@ footer{
 @media screen and (max-width: 992px){
     footer{
         .footer__partner{
+            .row{
+                margin:0
+            }
             p{
                 font-size: 14px;
             }
@@ -144,6 +147,11 @@ footer{
                     height: 35px;
                     font-size:12px;
                     margin-bottom: 5px;
+                }
+            }
+            .footer__partner__app{
+                img{
+                    margin-right: 0px;
                 }
             }
         }

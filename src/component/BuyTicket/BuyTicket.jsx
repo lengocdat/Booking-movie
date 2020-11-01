@@ -171,7 +171,7 @@ class BuyTicket extends Component {
                         <div className="buyticket__right_price">
                             <p>Ghế: {this.state.tenGhe?.reduce((tongghe, tenghe) => tongghe + tenghe + " ", "")}</p>
                             <p>{this.state.currentChair?.reduce((tonggia, item) => tonggia + item.giaVe, 0)}đ</p>
-                            <p>Thời gian giữ ghế:{this.state.time}</p>
+                            <p>Thời gian giữ ghế: {this.state.time}</p>
                         </div>
                         <div>
                             <button className="buyticket__right__book" onClick={() => { this.datve(datVe) }}>Đặt Vé</button>

@@ -121,20 +121,72 @@ header {
 }
 @media screen and (max-width:768px){
   header {
-  .header__nav{
-    .navbar-nav{
-      a{
-        margin-left: 20px;
+    .navbar{     
+      .header__nav{
+        .navbar-nav{
+          a{
+            margin-left: 20px;
+          }
+        }
+      }
+    
+      .header__login {
+        display: unset;
+        .header__login__user{
+          height: auto;
+          padding:0;
+          .header__login__true{
+           display:block;
+           position: unset;
+           margin-left: 20px;
+          .header__login__logout {
+            background-color: #fff;
+            position: unset;
+            display: block;
+            opacity: 1;
+            width: 100%;
+            border-radius: 10px;
+            padding: 0;
+            a{
+              color: rgba(0,0,0,.5);
+              background-color: #fff;
+              border-radius: 0;
+              text-align: left;
+              transition:all .5s;
+              margin:8px 0;
+              font-weight: bold;
+            }
+            a:hover{
+              color: #fa5238;
+            }
+          }
+          }
+        }
+        
+        .header__login__false{
+          margin-left: 20px;
+          margin-bottom: 10px;
+        }
+
+        .header__login__admin{
+          margin-left:20px;
+          a{
+            line-height:40px;
+            text-decoration: none;
+            color: rgba(0,0,0,.5);
+            padding:0;
+            font-weight: bold;
+            transition:all .5s;
+          }
+          .header__login__content{
+            width: 85px;
+          }
+        }
+        .header__login__admin:hover a{
+          color: #fa5238;
+        }
       }
     }
-  }
-
-  .header__login {
-    display: unset!important;
-    .header__login__user{
-      padding: 0 20px!important;
-      margin-bottom: 15px;
-    }
-  }
-}}
+  } 
+}
   

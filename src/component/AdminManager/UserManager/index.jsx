@@ -96,22 +96,22 @@ export default class UserManager extends Component {
               Thêm Người Dùng
             </button>
             <ModalAdd />
-            <div className="user__content-search">
+            <div >
               <Formik
                 initialValues={{
                   name: "",
                 }}
                 onSubmit={this.searchUser}
               >{(formikProps) => (
-                <Form>
+                <Form className="user__content-search">
                   <Field
                     type="text"
                     name="name"
                     onChange={formikProps.handleChange}
-                    className="field__group"
-                    placeholder="Nhập Họ Tên"
+                    className="field__search"
+                    placeholder="Nhập Từ Khóa"
                   />
-                  <button type="submit">Tim</button>
+                  <button type="submit"><i className="fa fa-search"></i></button>
                 </Form>
               )}</Formik>
             </div>
@@ -140,9 +140,8 @@ export default class UserManager extends Component {
                     <th>{user.maLoaiNguoiDung}</th>
                     <th className="table__button">
                       <ModalUpdate user={user} />
-                      <button className="table__button-update" type="button" data-toggle="modal" data-target={`#${user.taiKhoan}`}
-                      >Cập Nhật</button>
-                      <button className="table__button-delete" onClick={() => this.confirmDelete(user.taiKhoan)}>Xóa</button>
+                      <i data-toggle="modal" data-target={`#m${user.taiKhoan}`} className="fa fa-edit"></i>
+                      <i onClick={() => this.confirmDelete(user.taiKhoan)} className="fa fa-trash"></i>
                     </th>
                   </tr>
                 ))}
